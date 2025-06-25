@@ -11,7 +11,7 @@ const pdfmake = require('pdfmake/build/pdfmake');
 const vfsFonts = require('pdfmake/build/vfs_fonts');
 pdfmake.vfs = vfsFonts.pdfMake.vfs; // Cargar fuentes
 
-const port = 4100;
+const port = 5100;
 
 // Configurar middleware
 app.use(bodyParser.urlencoded({ extended: true }));
