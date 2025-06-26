@@ -206,7 +206,7 @@ app.get('/asistencia/pdf', (req, res) => {
         FROM asis3 a 
         JOIN alu3 al ON a.idestudiante = al.idestudiante
         WHERE a.fecha = ?
-    `;
+    `; 
 
     db.query(query, [fecha], (error, results) => {
         if (error) {
