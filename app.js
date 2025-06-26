@@ -101,7 +101,7 @@ app.post('/register', (req, res) => {
         }
 
         // Si el alumno no existe, proceder con el registro
-        const query = `INSERT INTO alu3 (apenomb, dni, carrera, curso, fecha) VALUES (?, ?, ?, ?)`;
+        const query = `INSERT INTO alu3 (apenomb, dni, carrera, curso, fecha) VALUES (?, ?, ?, ?,?)`;
         const fecha = new Date();
 
         db.query(query, [apenomb, dni, carrera, anio, fecha], (err, result) => {
