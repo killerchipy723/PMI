@@ -205,7 +205,7 @@ app.get('/asistencia/pdf', (req, res) => {
         SELECT a.idasistencia, al.apenomb, al.dni, al.carrera, a.fecha, a.estado 
         FROM asis3 a 
         JOIN alu3 al ON a.idestudiante = al.idestudiante
-        WHERE a.fecha = ?
+        WHERE DATE(a.fecha) = ?
     `; 
 
     db.query(query, [fecha], (error, results) => {
@@ -243,7 +243,7 @@ app.get('/asistencia/pdf', (req, res) => {
                                 asistencia.apenomb,
                                 asistencia.dni,
                                 asistencia.carrera,
-                                asistencia.fecha, // Asegúrate de que este campo sea parte de la consulta y que se muestre aquí
+                                asistencia.fecha ? new Date(asistencia.fecha).toLocaleDateString('es-AR') : '',
                                 asistencia.estado
                             ])
                         ]
